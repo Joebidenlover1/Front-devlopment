@@ -1,0 +1,73 @@
+$color-primary: #0000FF;
+$color-secondary: #333;
+$color-tertiary: #fff;
+
+$text-small: 14px;
+$text-medium: 16px;
+$text-large: 18px;
+
+$margin-small: 10px;
+$margin-medium: 20px;
+$margin-large: 30px;
+
+$h1-font-size: $text-large;
+$h2-font-size: $text-medium;
+$h3-font-size: $text-small;
+
+@import 'external-styles.scss';
+
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 1rem 0;
+  }
+}
+
+@mixin common-styles {
+  text-align: center;
+  margin-bottom: $margin-medium;
+}
+
+header {
+  @extend .common-styles;
+  background-color: $color-secondary;
+  color: $color-tertiary;
+  padding: 1rem 0;
+}
+
+.project a {
+  @extend .link-styles;
+}
+
+@if $background-dark {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+} @else {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+@for $i from 1 through 3 {
+  .grid-item-#{$i} {
+    width: 100% / $i;
+  }
+}
+
+$font-sizes: small medium large;
+@each $size in $font-sizes {
+  .text-#{$size} {
+    font-size: map-get($font-size-map, $size);
+  }
+}
+
+$shadow-depth: 5;
+$depth: 1;
+@while $depth <= $shadow-depth {
+  .shadow-#{$depth} {
+    box-shadow: 0 0 #{$depth * 2}px rgba(0, 0, 0, 0.1);
+  }
+  $depth: $depth + 1;
+}

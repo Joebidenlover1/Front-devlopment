@@ -1,0 +1,166 @@
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.profile-photo {
+  width: 152px;
+  height: 204px;
+  border-radius: 20%;
+  margin: 30px auto;
+  display: block;
+}
+
+.workplace-photo {
+  width: 200px;
+  height: auto;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav {
+  background-color: #0000FF;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+nav a:focus, nav a:hover {
+  color: #FFD700;
+}
+
+main {
+  padding: 2rem;
+}
+main .home {
+  text-align: center;
+}
+main .home h2, main .home h3, main .home p {
+  margin-bottom: 20px;
+}
+main .about {
+  text-align: center;
+}
+main .about h2 {
+  margin-bottom: 25px;
+}
+main .about h3, main .about p {
+  margin-bottom: 20px;
+}
+main .workplace-container .workplace-photo, main .workplace-container .workplace-iframe {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
+main .contact {
+  text-align: center;
+}
+main .contact form {
+  display: inline-block;
+  text-align: left;
+}
+main .contact form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+main .contact form input, main .contact form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+main .contact form input:focus, main .contact form textarea:focus {
+  outline: 2px solid #0000FF;
+}
+main .contact form input[type=submit] {
+  background-color: #0000FF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+main .contact form input[type=submit]:hover {
+  background-color: #000080;
+}
+main .projects h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+main .projects .project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+main .projects .project-container .project {
+  background-color: #ADD8E6;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 100%;
+  max-width: 300px;
+}
+main .projects .project-container .project h3 {
+  margin-top: 0;
+}
+main .projects .project-container .project p {
+  margin-bottom: 20px;
+}
+main .projects .project-container .project a {
+  text-decoration: none;
+  color: #337ab7;
+}
+main .projects .project-container .project a:hover {
+  color: #23527c;
+}
+
+footer {
+  background-color: #0000FF;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Telefoon (iPhone 12 Pro Max) */
+@media screen and (max-width: 428px) {
+  .profile-photo {
+    width: 100px;
+    height: 134px;
+    margin: 20px auto;
+  }
+  .project-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+/* Computer (MacBook Pro 15-inch) */
+@media screen and (min-width: 1440px) {
+  footer {
+    position: relative;
+    bottom: auto;
+    width: auto;
+  }
+}
+/* Tablet (iPad Pro 12.9-inch) */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  nav {
+    padding: 1rem 0;
+  }
+}/*# sourceMappingURL=style.css.map */
