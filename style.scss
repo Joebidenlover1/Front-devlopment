@@ -1,3 +1,4 @@
+// Variables
 $color-primary: #0000FF;
 $color-secondary: #333;
 $color-tertiary: #fff;
@@ -14,60 +15,112 @@ $h1-font-size: $text-large;
 $h2-font-size: $text-medium;
 $h3-font-size: $text-small;
 
-@import 'external-styles.scss';
-
-@media screen and (max-width: 768px) {
-  nav {
-    padding: 1rem 0;
-  }
-}
-
+// Mixins
 @mixin common-styles {
   text-align: center;
   margin-bottom: $margin-medium;
 }
 
+@mixin link-styles {
+  text-decoration: none;
+  color: $color-primary;
+  transition: color 0.2s ease;
+  &:hover {
+    color: darken($color-primary, 20%);
+  }
+}
+
+// Global Styles
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+// Header Styles
 header {
   @extend .common-styles;
   background-color: $color-secondary;
   color: $color-tertiary;
   padding: 1rem 0;
-}
-
-.project a {
-  @extend .link-styles;
-}
-
-@if $background-dark {
-  body {
-    background-color: #000;
-    color: #fff;
-  }
-} @else {
-  body {
-    background-color: #fff;
-    color: #000;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: $margin-medium;
   }
 }
 
-@for $i from 1 through 3 {
-  .grid-item-#{$i} {
-    width: 100% / $i;
+// Navigation Styles
+nav {
+  background-color: $color-secondary;
+  padding: 1rem 0;
+  a {
+    @extend .link-styles;
+    margin-right: $margin-small;
   }
 }
 
-$font-sizes: small medium large;
-@each $size in $font-sizes {
-  .text-#{$size} {
-    font-size: map-get($font-size-map, $size);
+// Project Styles
+.project {
+  margin-bottom: $margin-medium;
+  a {
+    @extend .link-styles;
   }
 }
 
-$shadow-depth: 5;
-$depth: 1;
-@while $depth <= $shadow-depth {
-  .shadow-#{$depth} {
-    box-shadow: 0 0 #{$depth * 2}px rgba(0, 0, 0, 0.1);
+// About Me Section Styles
+.about {
+  margin-bottom: $margin-large;
+
+  h4 {
+    margin-top: $margin-medium;
   }
-  $depth: $depth + 1;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li {
+      margin-bottom: $margin-small;
+    }
+  }
+}
+
+// Media Queries
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 1rem 0;
+  }
+  .project-container {
+    flex-direction: column;
+  }
+  .project {
+    margin-bottom: $margin-medium;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-photo {
+    width: 100%;
+    height: auto;
+  }
+  .workplace-iframe {
+    width: 100%;
+    height: 200px;
+  }
+  .project a {
+    font-size: $text-small;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    font-size: $text-small;
+  }
+  .nav a {
+    font-size: $text-small;
+  }
+  .project h3 {
+    font-size: $text-small;
+  }
 }
